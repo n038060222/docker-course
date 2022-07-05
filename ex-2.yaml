@@ -1,0 +1,10 @@
+#network
+docker network create wordpress-network
+#run mysql
+ docker run -p 3305:3306 -d --net wordpress-network -e MYSQL_ROOT_PASSWORD=root -e MYSQL_DATABASE=db -e MYSQL_USER=password --name mysql mysql
+ #sudo
+ #sudo apt-get install mysql-client
+ #conect to server
+ #mysql -h 127.0.0.1 -P 3306 -u root -p
+ #run wordpress
+  docker  run -d -p 8080:80 -e WORDPRESS_DB_HOST=mysql -e WORDPRESS_DB_USER=noa -e WORDPRESS_DB_USER=noa -e WORDPRESS_DB_NAME=wordpress --name wordpress wordpress
