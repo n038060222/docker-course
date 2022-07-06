@@ -1,23 +1,21 @@
-#network
-#$ docker-compose config
-version: '3'
-  services:
-    mysql:
-       image: mysql
-       ports:
-       - 3305:3306
-      environment:
-       - MYSQL_ROOT_PASSWORD=root
-       - MYSQL_DATABASE=db
-       - MYSQL_USER=password
-    wordpress:
-       image: wordpress
-       ports:
-       - 8080:80
-       environment:
-       - WORDPRESS_DB_HOST=mysql
-       - WORDPRESS_DB_USER=noa
-       - WORDPRESS_DB_NAME=wordpress
+version: "3.1"
+services:
+  wordpress:
+    image: wordpress
+    ports:
+      - 8080:80
+    environment:
+       WORDPRESS_DB_HOST: mysql
+       WORDPRESS_DB_USER: noa
+       WORDPRESS_DB_NAME: wordpress
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 3305:3306
+    environment:
+       MYSQL_ROOT_PASSWORD: root
+       MYSQL_DATABASE: noa
+       MYSQL_USER: password
 #action:
 #network-
 ##docker network create wordpress-network
