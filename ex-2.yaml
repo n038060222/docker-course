@@ -1,3 +1,4 @@
+
 version: "3.1"
 services:
   wordpress:
@@ -8,14 +9,16 @@ services:
        WORDPRESS_DB_HOST: mysql
        WORDPRESS_DB_USER: noa
        WORDPRESS_DB_NAME: wordpress
+       WORDPRESS_DB_PASSWORD: '1234'
   mysql:
     image: mysql:5.7
     ports:
       - 3305:3306
     environment:
        MYSQL_ROOT_PASSWORD: root
-       MYSQL_DATABASE: noa
-       MYSQL_USER: password
+       MYSQL_DATABASE: wordpress
+       MYSQL_USER: noa
+       MYSQL_PASSWORD: '1234'
 #action:
 #network-
 ##docker network create wordpress-network

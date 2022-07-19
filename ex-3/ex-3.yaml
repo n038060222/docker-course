@@ -1,0 +1,28 @@
+
+version: "3.1"
+services:
+  my-app:
+    image: n038060222/docker-course:1.0
+    ports:
+     - "3000:3000"
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+       MONGO_INITDB_ROOT_USERNAME: root 
+       MONGO_INITDB_ROOT_PASSWORD: 1234  
+  mongo-express:
+    image: mongo-express
+    depends_on:
+     - mongo
+    restart: always 
+    ports:
+      - "8088:8081"
+    environment:
+      ME_CONFIG_MONGODB_SERVER: mongo
+      ME_CONFIG_MONGODB_ADMINUSERNAME: root 
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 1234
+      ME_CONFIG_BASICAUTH_USERNAME: noa
+      ME_CONFIG_BASICAUTH_PASSWORD: noa
+   
