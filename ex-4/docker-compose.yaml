@@ -1,0 +1,10 @@
+version: "3.1"
+services:
+  c-develops:
+    image: n038060222/c-develops:1.0
+    ports:
+      - "8080:8080"
+    build: .
+    tty: true
+    volumes:
+     - ~/docker-course/ex-4/app:/gcc
